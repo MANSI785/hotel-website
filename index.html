@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury 7-Star Hotel</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
+        }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+        }
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: url('hotel-luxury.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+        }
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            padding: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+        .hero h1 {
+            font-size: 50px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+        .hero p {
+            font-size: 20px;
+            margin: 20px 0;
+            opacity: 0.9;
+        }
+        .hero .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            text-decoration: none;
+            background: linear-gradient(45deg, #d4af37, #ffcc00);
+            border-radius: 30px;
+            transition: all 0.4s ease-in-out;
+        }
+        .hero .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+         .about-section{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 10%;
+            background: #1a1a1a;
+        }
+        .about-content {
+            flex: 1;
+            animation: fadeInLeft 1.5s ease-in-out;
+        }
+        .about-content h2 {
+            font-size: 45px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        .about-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .about-image {
+            flex: 1;
+            text-align: center;
+            animation: fadeInRight 1.5s ease-in-out;
+        }
+        .about-image img {
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+        }
+        .about-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.9);
+        }
+        @keyframes fadeInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @media (max-width: 900px) {
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .about-image img {
+                width: 80%;
+            }
+        }
+        .amenities-section {
+            text-align: center;
+            padding: 100px 10%;
+            background: #1a1a1a;
+        }
+        .amenities-section h2 {
+            font-size: 50px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        .amenities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        .amenity {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            position: relative;
+            overflow: hidden;
+        }
+        .amenity:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+        .amenity img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+        .amenity h3 {
+            font-size: 22px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .amenity p {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .amenities-section {
+                padding: 80px 5%;
+            }
+        }
+        .rooms-section {
+            text-align: center;
+            padding: 100px 10%;
+            background: #1a1a1a;
+        }
+        .rooms-section h2 {
+            font-size: 50px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 40px;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        .rooms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            justify-content: center;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        .room-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            overflow: hidden;
+            position: relative;
+        }
+        .room-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+        .room-card img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.4s ease-in-out;
+        }
+        .room-card:hover img {
+            transform: scale(1.05);
+        }
+        .room-card h3 {
+            font-size: 22px;
+            color: #fff;
+            margin: 15px 0 10px;
+        }
+        .room-card p {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .room-card .price {
+            font-size: 18px;
+            color: #d4af37;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .book-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #d4af37;
+            color: #121212;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: back-ground 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .book-btn:hover {
+            background: #b3922c;
+            transform: scale(1.05);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .rooms-section {
+                padding: 80px 5%;
+            }
+        }
+        .dining-section {
+            position: relative;
+            text-align: center;
+            padding: 100px 10%;
+            background: url('fine-dining-bg.jpg') center/cover no-repeat;
+        }
+        .dining-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+        .dining-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            color: #fff;
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        .dining-content h2 {
+            font-size: 50px;
+            font-weight: 700;
+            color: #d4af37;
+            margin-bottom: 20px;
+        }
+        .dining-content p {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+        .signature-dishes {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        .dish {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+            width: 280px;
+        }
+        .dish:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+        .dish img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 0.4s ease-in-out;
+        }
+        .dish:hover img {
+            transform: scale(1.05);
+        }
+        .dish h3 {
+            font-size: 22px;
+            color: #d4af37;
+            margin: 15px 0 10px;
+        }
+        .dish p {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+        .explore-menu {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: #d4af37;
+            color: #121212;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: back ground 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .explore-menu:hover {
+            background: #b3922c;
+            transform: scale(1.05);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .dining-section {
+                padding: 80px 5%;
+            }
+        }
+        .testimonials-section {
+            padding: 80px 10%;
+            text-align: center;
+            position: relative;
+        }
+        .testimonials-section h2 {
+            font-size: 45px;
+            color: #d4af37;
+            margin-bottom: 30px;
+        }
+        .testimonial-slider {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        .testimonial {
+            min-width: 100%;
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            text-align: center;
+            opacity: 0;
+            transform: translateX(50px);
+            transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+        }
+        .testimonial.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            border: 2px solid #d4af37;
+        }
+        .testimonial p {
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .testimonial h3 {
+            font-size: 20px;
+            margin-top: 15px;
+            color: #d4af37;
+        }
+        .testimonial-controls {
+            margin-top: 20px;
+        }
+        .prev, .next {
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #d4af37;
+            border-radius: 5px;
+            margin: 5px;
+            transition: back ground 0.3s ease-in-out;
+        }
+        .prev:hover, .next:hover {
+            background: #d4af37;
+            color: #121212;
+        }
+        @media (max-width: 768px) {
+            .testimonials-section {
+                padding: 60px 5%;
+            }
+            .testimonials-section h2 {
+                font-size: 35px;
+            }
+            .testimonial p {
+                font-size: 16px;
+            }
+        }
+        .location-section {
+            padding: 80px 10%;
+            text-align: center;
+            position: relative;
+        }
+        .location-section h2 {
+            font-size: 45px;
+            color: #d4af37;
+            margin-bottom: 30px;
+        }
+        .location-info {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .map-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 450px;
+            margin: 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 3px solid #d4af37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+        .map-container:hover {
+            transform: scale(1.02);
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .address {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #d4af37;
+        }
+        .address i {
+            color: #d4af37;
+            margin-right: 10px;
+        }
+        @media (max-width: 768px) {
+            .location-section {
+                padding: 60px 5%;
+            }
+            .location-section h2 {
+                font-size: 35px;
+            }
+            .location-info {
+                font-size: 16px;
+            }
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1e1e1e;
+            color: #fff;
+            margin: 0;
+            padding: 20px;
+        }
+        .reservation-section {
+            padding: 80px 10%;
+            text-align: center;
+        }
+        .reservation-section h2 {
+            font-size: 45px;
+            color: #d4af37;
+            margin-bottom: 20px;
+            font-family: 'Playfair Display', serif;
+        }
+        .reservation-section p {
+            font-size: 18px;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #2c2c2c;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            font-weight: 500;
+            color: #bbb;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #555;
+            border-radius: 5px;
+            background-color: #3a3a3a;
+            color: #fff;
+            transition: border-color 0.3s ease-in-out;
+        }
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            border-color: #d4af37;
+            outline: none;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: none;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #d4af37;
+            color: #222;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: #b3932d;
+        }
+        @media (max-width: 768px) {
+            .reservation-section {
+                padding: 60px 5%;
+            }
+            .reservation-section h2 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+  
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Welcome to Royal Prestige</h1>
+            <p>Experience the pinnacle of luxury and elegance in our 7-star hotel.</p>
+            <a href="#booking" class="btn">Book Your Stay</a>
+        </div>
+    </section>
+    <section class="about-section">
+        <div class="about-content">
+            <h2>About Royal Prestige</h2>
+            <p>Step into the world of unparalleled luxury at Royal Prestige, the ultimate 7-star experience. Nestled in the heart of Gujarat, Vadodara, our hotel offers a seamless blend of opulence and sophistication. From world-class dining to exclusive suites and personalized services, we redefine the essence of grandeur.</p>
+            <p>Every moment at Royal Prestige is curated to perfection, ensuring that your stay is nothing short of extraordinary.</p>
+        </div>
+        <div class="about-image">
+            <img src="./photo/hotel-luxury.jpg" alt="Luxury Hotel">
+        </div>
+    </section><section class="amenities-section">
+        <h2>Luxury Amenities</h2>
+        <div class="amenities-grid">
+            <div class="amenity">
+                <img src="./photo/spa-icon.webp" alt="Spa">
+                <h3>World-Class Spa</h3>
+                <p>Relax and rejuvenate with our signature spa treatments.</p>
+            </div>
+            <div class="amenity">
+                <img src="./photo/pool-icon.jpeg" alt="Infinity Pool">
+                <h3>Infinity Pool</h3>
+                <p>Take a dip in our luxurious infinity pool with scenic views.</p>
+            </div>
+            <div class="amenity">
+                <img src="./photo/dining-icon.jpeg" alt="Fine Dining">
+                <h3>Fine Dining</h3>
+                <p>Indulge in gourmet delicacies crafted by world-renowned chefs.</p>
+            </div>
+            <div class="amenity">
+                <img src="./photo/butler-icon.jpeg" alt="24/7 Butler Service">
+                <h3>24/7 Butler Service</h3>
+                <p>Experience personalized services tailored to your needs.</p>
+            </div>
+            <div class="amenity">
+                <img src="./photo/gym-icon.jpeg" alt="Luxury Gym">
+                <h3>Luxury Fitness Center</h3>
+                <p>Stay fit with state-of-the-art gym equipment and personal trainers.</p>
+            </div>
+            <div class="amenity">
+                <img src="./photo/vip-icon.jpeg" alt="VIP Lounge">
+                <h3>Exclusive VIP Lounge</h3>
+                <p>Enjoy private luxury lounges for an elite experience.</p>
+            </div>
+        </div>
+    </section>
+    <section class="rooms-section">
+        <h2>Exclusive Rooms & Suites</h2>
+        <div class="rooms-grid">
+            <div class="room-card">
+                <img src="./photo/royal-suite.jpeg" alt="Royal Suite">
+                <h3>Royal Suite</h3>
+                <p>Experience unparalleled luxury with panoramic views and elite services.</p>
+                <p class="price">$1500 / Night</p>
+                <a href="#" class="book-btn">Book Now</a>
+            </div>
+            <div class="room-card">
+                <img src="./photo/presidential-suite.jpeg" alt="Presidential Suite">
+                <h3>Presidential Suite</h3>
+                <p>A prestigious suite with premium decor and 24/7 butler service.</p>
+                <p class="price">$2500 / Night</p>
+                <a href="#" class="book-btn">Book Now</a>
+            </div>
+            <div class="room-card">
+                <img src="./photo/executive-room.jpeg" alt="Executive Room">
+                <h3>Executive Room</h3>
+                <p>Designed for business elites with comfort and top-tier facilities.</p>
+                <p class="price">$800 / Night</p>
+                <a href="#" class="book-btn">Book Now</a>
+            </div>
+            <div class="room-card">
+                <img src="./photo/deluxe-room.jpeg" alt="Deluxe Room">
+                <h3>Deluxe Room</h3>
+                <p>Perfect blend of elegance and relaxation for a comfortable stay.</p>
+                <p class="price">$500 / Night</p>
+                <a href="#" class="book-btn">Book Now</a>
+            </div>
+        </div>
+    </section>
+    <section class="dining-section">
+        <div class="dining-overlay"></div>
+        <div class="dining-content">
+            <h2>Fine Dining Experience</h2>
+            <p>Indulge in a world-class culinary journey with our award-winning chefs, curated gourmet menus, and an ambiance of sophistication.</p>
+            <div class="signature-dishes">
+                <div class="dish">
+                    <img src="./photo/starters.jpg" alt="Starters">
+                    <h3>Starters</h3>
+                    <p>Some restaurants serve Mexican salads, nachos, tacos & even chips as starters while some of the restaurants in India include our own way of serving dishes of starters like, Paneer, Potato wedges, fries, momos & even spring rolls made out of multiple things.</p>
+                </div>
+                <div class="dish">
+                    <img src="./photo/main corse.jpeg" alt="Main Course">
+                    <h3>Main Course</h3>
+                    <p>The core of a typical Indian dinner (or lunch) is rice, or a flatbread, and a lentil stew (dal). There will also be a vegetarian stew, and if non-vegetarian, a meat, chicken, or seafood curry.</p>
+                </div>
+                <div class="dish">
+                    <img src="./photo/dessrets.jpg" alt="Desserts">
+                    <h3>Desserts</h3>
+                    <p>The modern term dessert can apply to many sweets, including fruit, custards, gelatins, puddings, biscuits, cookies, macaroons, pastries, pies, tarts, cakes, ice creams, and sweet soups.</p>
+                </div>
+            </div>
+    
+            <br>
+            <br>
+    
+            <label for="veg-menu">Choose a vegetarian dish:</label>
+            <select name="veg-menu" id="veg-menu">
+                <optgroup label="Starters">
+                    <option value="soup">Vegetable Soup</option>
+                    <option value="bruschetta">Tomato Bruschetta</option>
+                    <option value="salad">Greek Salad</option>
+                </optgroup>
+                <optgroup label="Main Course">
+                    <option value="paneer-tikka">Paneer Tikka</option>
+                    <option value="pasta">Vegetable Pasta</option>
+                    <option value="dal-makhani">Dal Makhani</option>
+                    <option value="veg-biryani">Vegetable Biryani</option>
+                </optgroup>
+                <optgroup label="Desserts">
+                    <option value="gulab-jamun">Gulab Jamun</option>
+                    <option value="kheer">Kheer (Rice Pudding)</option>
+                    <option value="fruit-salad">Fresh Fruit Salad</option>
+                </optgroup>
+                <optgroup label="Beverages">
+                    <option value="lassi">Mango Lassi</option>
+                    <option value="juice">Fresh Orange Juice</option>
+                    <option value="tea">Masala Chai</option>
+                </optgroup>
+            </select>
+    
+            <a href="#" class="explore-menu">Explore Full Menu</a>
+        </div>
+    </section>
+                    
+        
+    <section class="testimonials-section">
+        <h2>Guest Testimonials</h2>
+        <div class="testimonial-slider">
+            <div class="testimonial active">
+                <img src="./photo/guest.1.jpg" alt="Guest 1">
+                <p>"An absolutely luxurious experience! The hospitality and ambiance were beyond expectations. I felt like royalty."</p>
+                <h3>- Mr. Jay</h3>
+            </div>
+            <div class="testimonial">
+                <img src="./photo/guest2.jpg" alt="Guest 2">
+                <p>"The finest dining and impeccable service. This hotel truly defines luxury. Can't wait to return!"</p>
+                <h3>- Ms. Mansi</h3>
+            </div>
+            <div class="testimonial">
+                <img src="./photo/guest.3.jpeg" alt="Guest 3">
+                <p>"Everything from the suites to the spa was a masterpiece. The staff made me feel at home in paradise!"</p>
+                <h3>- Alexa R.</h3>
+            </div>
+        </div>
+        <div class="testimonial-controls">
+            <button class="prev">❮</button>
+            <button class="next">❯</button>
+        </div>
+    </section>
+
+    <script>
+        let index = 0;
+        const testimonials = document.querySelectorAll(".testimonial");
+        const nextButton = document.querySelector(".next");
+        const prevButton = document.querySelector(".prev");
+
+        function showTestimonial(n) {
+            testimonials.forEach((testi, i) => {
+                testi.classList.remove("active");
+                if (i === n) {
+                    testi.classList.add("active");
+                }
+            });
+        }
+
+        nextButton.addEventListener("click", () => {
+            index = (index + 1) % testimonials.length;
+            showTestimonial(index);
+        });
+
+        prevButton.addEventListener("click", () => {
+            index = (index - 1 + testimonials.length) % testimonials.length;
+            showTestimonial(index);
+        });
+
+        setInterval(() => {
+            index = (index + 1) % testimonials.length;
+            showTestimonial(index);
+        }, 5000);
+    </script>
+     <section class="location-section">
+        <h2>Find Us</h2>
+        <p class="location-info">Experience the ultimate luxury at our 7-star hotel in **Vadodara, Gujarat, India**. We are located in the heart of the city, offering breathtaking views and easy access to prime attractions.</p>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.2558054320387!2d73.18816731472488!3d22.2994059853236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395fc8eb43b00bdf%3A0x1c0d3e9a55f0b5e4!2sVadodara%2C%20Gujarat%2C%20India!5e0!3m2!1sen!2sus!4v1646226630797!5m2!1sen!2sus" 
+                allowfullscreen="" loading="lazy">
+            </iframe>
+        </div>
+        <p class="address"><i class="fas fa-map-marker-alt"></i> Royal Luxury Hotel, Vadodara, Gujarat, India</p>
+    </section>
+    <section class="reservation-section">
+        <h2>Reserve Your Luxury Experience</h2>
+        <p>Book a table or reach out to us for any inquiries. We are here to make your stay unforgettable.</p>
+        <div class="form-container">
+            <form>
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="number" id="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Reservation Date</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Reservation Time</label>
+                    <input type="time" id="time" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Message</label>
+                    <textarea id="message" placeholder="Enter any special requests..."></textarea>
+                </div>
+                <button type="submit">Submit Reservation</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
